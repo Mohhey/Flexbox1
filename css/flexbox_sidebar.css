@@ -1,0 +1,102 @@
+@charset "UTF-8";
+/*------------------------------------
+	簡単なリセットとページのスタイル
+-------------------------------------*/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: #f3f3f3;
+}
+
+body {
+  font: normal 14px "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+}
+
+/*------------------------------------
+	コンテンツとサイドバーを2カラムにするスタイル
+-------------------------------------*/
+#page {
+  /* 子要素を水平にレイアウトするための指定 */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  /* コンテンツとサイドバーを合わせたマックスの幅を1200pxにして中央に配置*/
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#main {
+  /* メインコンテンツの幅を自動で指定 */
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+aside {
+  /* サイドバーの幅を280px以下にならないように指定 */
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  width: 280px;
+}
+
+/*------------------------------------
+	コンテンツとサイドバーのスタイル
+-------------------------------------*/
+#main {
+  background: #fff;
+  padding: 40px 100px 40px 40px;
+  line-height: 1.5;
+  color: #565a5c;
+}
+
+#main h1 {
+  margin-bottom: 28px;
+  font-size: 24px;
+}
+
+#main p {
+  margin-bottom: 24px;
+}
+
+#main .wireframe-box {
+  background: #e2e2e2;
+  padding: 200px 0;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+aside {
+  background: #292c2f;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+aside .wireframe-box {
+  background: #37393c;
+  margin-top: 20px;
+  padding: 50px;
+}
+
+aside .double {
+  padding: 100px;
+}
+
+@media all and (max-width: 800px) {
+  /* ブラウザ幅が800px以下の場合はサイドバーをコンテンツの下に落とす */
+  #page {
+    /* 子要素を上から下へ垂直に表示する指定 */
+    -ms-flex-flow: column;
+        flex-flow: column;
+  }
+  aside {
+    /* サイドバーをブラウザ幅に合わせる指定 */
+    width: auto;
+  }
+  #main {
+    padding-right: 40px;
+  }
+}
